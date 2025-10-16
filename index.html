@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADC Matchup Flashcards</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 ADC Matchup Guide</h1>
+            <p>Learn how each ADC plays with different support types!</p>
+        </div>
+
+        <div class="champion-selector">
+            <label for="champion-dropdown">Playing as:</label>
+            <select id="champion-dropdown" class="champion-dropdown" onchange="selectChampion(this.value)">
+            </select>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterMatchups('all')">All Matchups</button>
+            <button class="filter-btn" onclick="filterMatchups('favorable')">Favorable</button>
+            <button class="filter-btn" onclick="filterMatchups('skill')">Skill Matchups</button>
+            <button class="filter-btn" onclick="filterMatchups('unfavorable')">Unfavorable</button>
+        </div>
+
+        <div class="flashcard-wrapper">
+            <div class="flashcard" id="flashcard" onclick="flipCard()">
+                <div class="card-face card-front" id="card-front">
+                    <div class="champion-name" id="champion-name">Caitlyn</div>
+                    <div class="difficulty" id="difficulty">Skill Matchup</div>
+                    <p style="color: #666; margin-top: 20px;">Click to reveal matchup details</p>
+                </div>
+                <div class="card-face card-back" id="card-back">
+                    <div id="details-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prev-btn" onclick="event.stopPropagation(); previousCard()">← Previous</button>
+            <div class="counter">
+                <span id="current-card">1</span> / <span id="total-cards">19</span>
+            </div>
+            <button class="nav-btn" id="next-btn" onclick="event.stopPropagation(); nextCard()">Next →</button>
+        </div>
+
+        <div class="hint">💡 Click the card to flip | Use arrow keys to navigate</div>
+    </div>
+
+    <script src="abilities.js"></script>
+    <script src="matchups.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
